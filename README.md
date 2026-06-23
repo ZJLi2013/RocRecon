@@ -100,7 +100,7 @@ canonical frame 契约与 prompt 指南见 [docs/asset-generation.md](docs/asset
 | --- | --- | --- |
 | `trellis2` | Microsoft TRELLIS.2-4B（图生 3D，PBR） | 已验证（MI300X） |
 | `hunyuan3d` | Tencent Hunyuan3D | 社区 fork |
-| `triposg` | TripoSG | 待验证 |
+| `triposg` | TripoSG | 已验证（MI300X） |
 
 
 ## Next Step

@@ -103,7 +103,7 @@ For the canonical-frame contract and prompt guidance, see
 | --- | --- | --- |
 | `trellis2` | Microsoft TRELLIS.2-4B (image-to-3D, PBR) | verified (MI300X) |
 | `hunyuan3d` | Tencent Hunyuan3D | community fork |
-| `triposg` | TripoSG | not yet verified |
+| `triposg` | TripoSG | verified (MI300X) |
 
 
 ## Next Step
