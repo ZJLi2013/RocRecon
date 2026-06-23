@@ -2,11 +2,19 @@
 
 > [中文](README.md) | English
 
-**The real2sim asset side of the RocRobSim platform — currently an object-level gen3d pipeline.**
+**The real2sim asset side of the RocRobSim platform — generation and reconstruction of all sim-ready assets.**
 
-Turn a prompt or a single reference image into a single-object **sim-ready asset
-directory** — a scaled, physically-plausible mesh plus a URDF with collision
-geometry — ready to be dropped into a robotics simulator.
+Capability spans **granularity (object → scene) × method (generation / reconstruction)**:
+
+| Scope | Generation | Reconstruction |
+| --- | :---: | :---: |
+| Object · rigid | ✅ | ◻ |
+| Object · articulated | ✅ | ◻ |
+| Object · soft (cloth / fabric…) | ◻ | ◻ |
+| Scene (street block / kitchen / living room…) | ◻ | ◻ |
+
+✅ available ｜ ◻ planned. Generation = prompt / image → asset; reconstruction = real capture (RGB-D / video / scan) → asset.
+Scene reconstruction targets NuRec-class capability: turn a whole street block / kitchen / living room into a directly simulatable environment.
 
 It is a pure *producer*: it only writes files and has **no dependency on any
 downstream consumer** (asset library, SDG data engine, etc.). Consumers ingest
@@ -100,16 +108,17 @@ For the canonical-frame contract and prompt guidance, see
 
 ## Next Step
 
-Today it only does object-level generation (prompt / single image → single-object sim-ready URDF).
-No real 3D reconstruction yet:
+Fill in the ◻ cells above, in order:
 
-- [ ] single-object reconstruction (real RGB-D / video / scan → asset)
-- [ ] scene-level real2sim reconstruction (multi-object layout, scene structure)
+1. Object reconstruction (real RGB-D / video / scan → single-object asset)
+2. Soft-body generation (cloth / fabric and other deformables)
+3. Scene reconstruction (NuRec-class whole-scene real2sim: street block / kitchen / living room → simulatable environment)
 
 
 ## Docs
 
 - [docs/asset-generation.md](docs/asset-generation.md) — canonical-frame contract, prompt guidance, output contract
+- [docs/articulated-authoring.md](docs/articulated-authoring.md) — articulated asset authoring (Articraft → self-contained URDF)
 - [docs/rocm-setup.md](docs/rocm-setup.md) — TRELLIS.2 / generation backend setup on ROCm
 - [docs/extending-backends.md](docs/extending-backends.md) — developer guide: add a backend (incl. bringing in rocm3d models), extensibility & end goal
 
